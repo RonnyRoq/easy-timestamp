@@ -16,6 +16,18 @@ const msToTimestamp = (ms) => {
   return msAsString.substring(0, msAsString.length-3);
 }
 
+const optionToTimezoneStr = (option=0) => {
+  const today = new Date()
+  switch(option) {
+    case 1:
+      return "CET";
+    case 2:
+      return "EEST";
+    default:
+      return "BST";
+  }
+}
+
 function start() {
 // Create an express app
 const app = express();
@@ -72,13 +84,11 @@ app.post('/interactions', async function (req, res) {
     }
 
     if( name === "timestamp") {
-      const [date] = options
-      const parsedDate = chrono.parseDate(date.value)
-      console.log(parsedDate)
+      const [date, timezone =0] = options
+      const strTimezone = optionToTimezoneStr(timezone.value)
+      const parsedDate = chrono.parseDate(date.value, {instance: new Date(), timezone:strTimezone})
       const timestamp = msToTimestamp(Date.now())
-      console.log(timestamp)
       const doubleParse = msToTimestamp(Date.parse(parsedDate))
-      console.log(doubleParse)
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {

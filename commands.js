@@ -39,6 +39,20 @@ const TIMESTAMP = {
     name: 'date',
     description: "The date you'd like to convert to a timestamp",
     required: true
+  }, {
+    type: 4,
+    name: 'timezone',
+    description: "Which timezone to apply",
+    choices: [{
+      name: "UK",
+      value: "0"
+    }, {
+      name: "Central Europe",
+      value: "1"
+    }, {
+      name: "Turkey",
+      value: "2"
+    }]
   }]
 }
 
