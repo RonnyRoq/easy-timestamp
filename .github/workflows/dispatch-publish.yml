@@ -1,4 +1,4 @@
-name: Witzfactory Docker Build and Push (Manual)
+name: Easy Timestamp Docker Build and Push (Manual)
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions: write-all
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: witzfactory
+  IMAGE_NAME: easy-timestamp-bot
   REPO_NAME: ${{ github.actor }}
 
 jobs:
