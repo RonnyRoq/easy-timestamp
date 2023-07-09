@@ -46,7 +46,7 @@ jobs:
         # Directory to run `docker build` from, if not project root
         directory: . # optional
         # Docker build arguments passed via --build-arg
-        # buildArgs: # optional
+        buildArgs: APP_ID=$APP_ID, DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}, PUBLIC_KEY=$PUBLIC_KEY, PORT=$PORT
         # Docker build labels passed via --label
         # labels: # optional
         # Docker build target passed via --target
