@@ -9,5 +9,4 @@ RUN npm install --production
 
 COPY . .
 
-CMD ["node", "commands.js"]
-CMD ["node", "app.js"]
+CMD ["node", "index.js"]
